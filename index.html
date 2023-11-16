@@ -10,8 +10,8 @@
 <body>
     <div id="app">
         <div class="card">
-          <span class="counter">{{ currentSlideIndex + 1 }}</span>
           <img v-if="slides.length > 0" :src="slides[currentSlideIndex].immagine" alt="Slide Image">
+          <span class="counter">{{ currentSlideIndex + 1 }}</span>
           <h1 v-if="slides.length > 0">{{ slides[currentSlideIndex].titolo }}</h1>
           <p v-if="slides.length > 0">{{ slides[currentSlideIndex].testo }}</p>
         </div>

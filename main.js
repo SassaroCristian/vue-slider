@@ -20,30 +20,74 @@ const { createApp } = Vue;
               testo: 'Approfitta delle nostre offerte speciali. Sconti incredibili solo per te!'
             }
           ],
+
+          colors: [
+            'red',
+            'blue',
+            'green',
+            'yellow',
+            'purple',
+            'orange',
+            'magenta',
+            'coral'
+          ],
+
+          bgColors: [
+            'redBg',
+            'blueBg',
+            'greenBg',
+            'yellowBg',
+            'purpleBg',
+            'orangeBg',
+            'magentaBg',
+            'coralBg'
+          ],
+
+          titoloClass: '',
+          testoClass: '',
+          counterClass: '',
+          buttonBgClass : '',
+
+          
           // do l'indice della diapositiva attualmente visualizzata
           currentSlideIndex: 0
         };
       },
       methods: {
-        // creo una funzione per passare alla diapositiva successiva
         nextSlide() {
           let lastSlide = this.slides.length - 1;
-
+    
           if (this.currentSlideIndex < lastSlide) {
             this.currentSlideIndex++;
           } else {
             this.currentSlideIndex = 0;
           }
         },
-      // creo una funzione per passare alla diapositiva precedente
         prevSlide() {
           let lastSlide = this.slides.length - 1;
-
+    
           if (this.currentSlideIndex > 0) {
             this.currentSlideIndex--;
           } else {
             this.currentSlideIndex = lastSlide;
           }
+        },
+        getRandomColor() {
+          const randomIndex = Math.floor(Math.random() * this.colors.length);
+          return this.colors[randomIndex];
+        },
+        getRandomBgColor() {
+          const randomIndex = Math.floor(Math.random() * this.bgColors.length);
+          return this.bgColors[randomIndex];
+        }
+      },
+      watch: {
+        currentSlideIndex() {
+          this.titoloClass = this.getRandomColor();
+          this.testoClass = this.getRandomColor();
+          this.counterClass = this.getRandomColor();
+          this.nextButtonBgClass = this.getRandomBgColor();
+          this.prevButtonBgClass = this.getRandomBgColor();
         }
       }
     };

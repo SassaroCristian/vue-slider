@@ -11,13 +11,13 @@
     <div id="app">
         <div class="card">
           <img v-if="slides.length > 0" :src="slides[currentSlideIndex].immagine" alt="Slide Image">
-          <span class="counter">{{ currentSlideIndex + 1 }}</span>
-          <h1 v-if="slides.length > 0">{{ slides[currentSlideIndex].titolo }}</h1>
-          <p v-if="slides.length > 0">{{ slides[currentSlideIndex].testo }}</p>
+          <span class="counter" :class="counterClass">{{ currentSlideIndex + 1 }}</span>
+          <h1 :class="titoloClass" v-if="slides.length > 0">{{ slides[currentSlideIndex].titolo }}</h1>
+         <p :class="testoClass" v-if="slides.length > 0">{{ slides[currentSlideIndex].testo }}</p>
         
         
-        <button @click="prevSlide" class="button-arounder">Previous</button>
-        <button @click="nextSlide" class="button-arounder">Next</button>
+        <button @click="prevSlide" :class="prevButtonBgClass" class="button-arounder">Previous</button>
+        <button @click="nextSlide" :class="nextButtonBgClass" class="button-arounder">Next</button>
     </div>
       </div>
     

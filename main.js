@@ -79,6 +79,9 @@ const { createApp } = Vue;
         getRandomBgColor() {
           const randomIndex = Math.floor(Math.random() * this.bgColors.length);
           return this.bgColors[randomIndex];
+        },
+        changeSlide(index) {
+          this.currentSlideIndex = index;
         }
       },
       watch: {
@@ -89,7 +92,17 @@ const { createApp } = Vue;
           this.nextButtonBgClass = this.getRandomBgColor();
           this.prevButtonBgClass = this.getRandomBgColor();
         }
-      }
-    };
+      },
+
+      mounted() {
+      setInterval(() => {
+        this.nextSlide();
+      }, 5000);
+    }
+  };
+    
 
     createApp(slideShow).mount('#app');
+
+    
+  

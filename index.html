@@ -7,10 +7,13 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>vue-slider</title>
 </head>
-<body>
+<body>  
     <div id="app">
+      <div class="preview-imgs-box">
+        <img class="preview-imgs" v-for="(slide, i) in slides" :key="i" @click="changeSlide(i)" :src="slide.immagine" alt="">
+      </div>
         <div class="card">
-          <img v-if="slides.length > 0" :src="slides[currentSlideIndex].immagine" alt="Slide Image">
+          <img v-for="slides.length > 0" :src="slides[currentSlideIndex].immagine" alt="Slide Image">
           <span class="counter" :class="counterClass">{{ currentSlideIndex + 1 }}</span>
           <h1 :class="titoloClass" v-if="slides.length > 0">{{ slides[currentSlideIndex].titolo }}</h1>
          <p :class="testoClass" v-if="slides.length > 0">{{ slides[currentSlideIndex].testo }}</p>

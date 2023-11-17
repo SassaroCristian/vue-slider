@@ -11,6 +11,7 @@ body {
 }
 
 .card {
+    margin: auto;
     text-align: center;
 } 
 
@@ -30,6 +31,17 @@ h1 {
 img {
     width: 400px;
     height: 400px;
+}
+
+.preview-imgs-box {
+    margin: auto;
+    width: 800px;
+}
+
+.preview-imgs {
+    height: 150px;
+    width: 150px;
+    margin: 50px;
 }
   
 button {
